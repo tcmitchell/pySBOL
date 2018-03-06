@@ -64,6 +64,10 @@ elif config[0] == 'Mac':
       'sbol': ['_libsbol.so', 'libsbol.py', 'crispr_example.xml']
     }
 else:
+    # Linux
+    distro = platform.dist()
+    package_dir = "%s_%s_%d_%d" % (distro[0], distro[1], config[1], config[2])
+    chdir(path.join(here,package_dir))
     package_data={
       'sbol': ['examples/*'],
       'sbol.test': ['*.*', 'SBOL2/*.*'],
